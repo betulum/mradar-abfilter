@@ -1,16 +1,16 @@
 Model {
   Name			  "abfilter"
-  Version		  8.0
+  Version		  8.6
   MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1251"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.12"
+    ComputedModelVersion    "1.14"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1251"
   slprops.hdlmdlprops {
     $PropName		    "HDLParams"
     $ObjectID		    1
@@ -22,7 +22,6 @@ Model {
       PropName		      "mdlProps"
     }
   }
-  SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -51,7 +50,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -66,7 +65,7 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[879.0, 778.0]
+	Extents			[883.0, 779.0]
 	ZoomFactor		[1.0]
 	Offset			[0.0, -19.0]
       }
@@ -78,10 +77,10 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "mishuk"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Nov 03 18:32:19 2018"
-  RTWModifiedTimeStamp	  463169984
-  ModelVersionFormat	  "1.%<AutoIncrement:12>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Sat Dec 08 15:04:00 2018"
+  RTWModifiedTimeStamp	  466182084
+  ModelVersionFormat	  "1.%<AutoIncrement:14>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -98,6 +97,8 @@ Model {
   SortedOrder		  off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
+  ShowVisualizeInsertedRTB on
+  ShowMarkup		  on
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
@@ -106,6 +107,11 @@ Model {
   BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
+  PauseTimes		  "5"
+  NumberOfSteps		  1
+  SnapshotBufferSize	  10
+  SnapshotInterval	  10
+  NumberOfLastSnapshots	  0
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -131,20 +137,6 @@ Model {
       PropName		      "logAsSpecifiedByModelsSSIDs_"
     }
   }
-  RecordCoverage	  off
-  CovPath		  "/"
-  CovSaveName		  "covdata"
-  CovMetricSettings	  "dw"
-  CovNameIncrementing	  off
-  CovHtmlReporting	  on
-  CovForceBlockReductionOff on
-  covSaveCumulativeToWorkspaceVar on
-  CovSaveSingleToWorkspaceVar on
-  CovCumulativeVarName	  "covCumulativeData"
-  CovCumulativeReport	  off
-  CovReportOnPause	  on
-  CovModelRefEnable	  "Off"
-  CovExternalEMLEnable	  off
   ExtModeBatchMode	  off
   ExtModeEnableFloating	  on
   ExtModeTrigType	  "manual"
@@ -166,7 +158,6 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
-  BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
   Array {
@@ -174,13 +165,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      8
-      Version		      "1.12.1"
+      Version		      "1.15.1"
       Array {
 	Type			"Handle"
-	Dimension		9
+	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  9
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  StartTime		  "0.0"
 	  StopTime		  "10"
 	  AbsTol		  "auto"
@@ -207,6 +198,8 @@ Model {
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
 	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverInfoToggleStatus  off
+	  IsAutoAppliedInSIP	  off
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
 	  AutoInsertRateTranBlk	  off
@@ -215,7 +208,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  10
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -233,6 +226,9 @@ Model {
 	  SignalLogging		  on
 	  DSMLogging		  on
 	  InspectSignalLogs	  off
+	  VisualizeSimOutput	  on
+	  StreamToWorkspace	  off
+	  StreamVariableName	  "streamout"
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
 	  StateSaveName		  "xout"
@@ -244,10 +240,11 @@ Model {
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
+	  LoggingIntervals	  "[-inf, inf]"
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  11
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    7
@@ -263,14 +260,17 @@ Model {
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
-	  InlineParams		  off
-	  UseIntDivNetSlope	  off
+	  DefaultParameterBehavior "Tunable"
+	  UseDivisionForNetSlopeComputation "off"
 	  UseFloatMulNetSlope	  off
+	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
+	  CachingGlobalReferences off
+	  GlobalBufferReuse	  on
 	  StrengthReduction	  off
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
@@ -278,14 +278,13 @@ Model {
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
+	  PassReuseOutputArgsThreshold 12
 	  ExpressionDepthLimit	  2147483647
-	  FoldNonRolledExpr	  on
 	  LocalBlockOutputs	  on
 	  RollThreshold		  5
-	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
-	  UseTempVars		  off
+	  ActiveStateOutputEnumStorageType "Native Integer"
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
 	  InitFltsAndDblsToZero	  off
@@ -296,13 +295,12 @@ Model {
 	  LifeSpan		  "inf"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
-	  SimCompilerOptimization "Off"
+	  SimCompilerOptimization "off"
 	  AccelVerboseBuild	  off
-	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  12
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -329,7 +327,6 @@ Model {
 	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "warning"
 	  InheritedTsInSrcMsg	  "warning"
-	  DiscreteInheritContinuousMsg "warning"
 	  MultiTaskDSMMsg	  "error"
 	  MultiTaskCondExecSysMsg "error"
 	  MultiTaskRateTransMsg	  "error"
@@ -357,17 +354,16 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
-	  FrameProcessingCompatibilityMsg "warning"
+	  FrameProcessingCompatibilityMsg "error"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
-	  EnableOverflowDetection off
+	  AllowSymbolicDim	  off
 	  ModelReferenceIOMsg	  "none"
 	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
-	  ModelReferenceCSMismatchMessage "none"
 	  UnknownTsInhSupMsg	  "warning"
 	  ModelReferenceDataLoggingMessage "warning"
 	  ModelReferenceSymbolNameMessage "warning"
@@ -376,10 +372,10 @@ Model {
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
 	  InitInArrayFormatMsg	  "warning"
-	  StrictBusMsg		  "Warning"
+	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
-	  LoggingUnavailableSignals "error"
+	  SymbolicDimMinMaxWarning "warning"
 	  BlockIODiagnostic	  "none"
 	  SFUnusedDataAndEventsDiag "warning"
 	  SFUnexpectedBacktrackingDiag "warning"
@@ -389,14 +385,17 @@ Model {
 	  SFUnconditionalTransitionShadowingDiag "warning"
 	  SFUndirectedBroadcastEventsDiag "warning"
 	  SFTransitionActionBeforeConditionDiag	"warning"
+	  SFOutputUsedAsStateInMooreChartDiag "error"
+	  IntegerSaturationMsg	  "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  13
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerLongLong	  64
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
 	  ProdBitPerPointer	  32
@@ -406,21 +405,23 @@ Model {
 	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
 	  ProdShiftRightIntArith  on
+	  ProdLongLongMode	  off
 	  ProdHWDeviceType	  "32-bit Generic"
 	  TargetBitPerChar	  8
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerLongLong	  64
 	  TargetBitPerFloat	  32
 	  TargetBitPerDouble	  64
 	  TargetBitPerPointer	  32
 	  TargetLargestAtomicInteger "Char"
 	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
+	  TargetLongLongMode	  off
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
 	  TargetWordSize	  32
-	  TargetTypeEmulationWarnSuppressLevel 0
 	  TargetPreprocMaxBitsSint 32
 	  TargetPreprocMaxBitsUint 32
 	  TargetHWDeviceType	  "Specified"
@@ -429,8 +430,9 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  14
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  EnableRefExpFcnMdlSchedulingChecks on
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
 	  ParallelModelReferenceErrorOnInvalidPool on
@@ -444,22 +446,19 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  15
-	  Version		  "1.12.1"
-	  SFSimEnableDebug	  on
-	  SFSimOverflowDetection  on
+	  Version		  "1.15.1"
 	  SFSimEcho		  on
-	  SimBlas		  on
 	  SimCtrlC		  on
-	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  off
 	  SimBuildMode		  "sf_incremental_build"
+	  SimGenImportedTypeDefs  off
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  16
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    6
@@ -472,11 +471,14 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  PackageGeneratedCodeAndArtifacts off
 	  TemplateMakefile	  "grt_default_tmf"
+	  PostCodeGenCommand	  ""
+	  Description		  ""
 	  GenerateReport	  off
 	  SaveLog		  off
 	  RTWVerbose		  on
@@ -485,41 +487,40 @@ Model {
 	  TLCDebug		  off
 	  TLCCoverage		  off
 	  TLCAssert		  off
-	  ProcessScriptMode	  "Default"
-	  ConfigurationMode	  "Optimized"
-	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  Toolchain		  "Automatically locate an installed toolchain"
+	  BuildConfiguration	  "Faster Builds"
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  PortableWordSizes	  off
-	  GenerateErtSFunction	  off
 	  CreateSILPILBlock	  "None"
 	  CodeExecutionProfiling  off
 	  CodeExecutionProfileVariable "executionProfile"
 	  CodeProfilingSaveOptions "SummaryOnly"
 	  CodeProfilingInstrumentation off
+	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
-	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
 	  GenerateTraceReport	  off
 	  GenerateTraceReportSl	  off
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
-	  GenerateCodeInfo	  off
 	  GenerateWebview	  off
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
-	  RTWCompilerOptimization "Off"
+	  GenerateMissedCodeReplacementReport off
+	  RTWCompilerOptimization "off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
-	  CustomRebuildMode	  "OnUpdate"
+	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      17
-	      Version		      "1.12.1"
+	      Version		      "1.15.1"
 	      Array {
 		Type			"Cell"
 		Dimension		19
@@ -546,6 +547,7 @@ Model {
 	      }
 	      ForceParamTrailComments off
 	      GenerateComments	      on
+	      CommentStyle	      "Auto"
 	      IgnoreCustomStorageClasses on
 	      IgnoreTestpoints	      off
 	      IncHierarchyInIds	      off
@@ -561,13 +563,14 @@ Model {
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
-	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
 	      CustomSymbolStrFcn      "$R$N$M$F"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
+	      CustomSymbolStrUtil     "$N$C"
 	      DefineNamingRule	      "None"
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
@@ -576,7 +579,7 @@ Model {
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
-	      InternalIdentifier      "Classic"
+	      InternalIdentifier      "Shortened"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
@@ -584,40 +587,41 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      18
-	      Version		      "1.12.1"
+	      Version		      "1.15.1"
 	      Array {
 		Type			"Cell"
-		Dimension		16
+		Dimension		15
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
-		Cell			"CombineOutputUpdateFcns"
+		Cell			"GenerateAllocFcn"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
 		Cell			"GenerateSampleERTMain"
 		Cell			"GenerateTestInterfaces"
 		Cell			"ModelStepFunctionPrototypeControlCompliant"
 		Cell			"CPPClassGenCompliant"
-		Cell			"MultiInstanceERTCode"
+		Cell			"SupportNonInlinedSFcns"
 		Cell			"PurelyIntegerCode"
 		Cell			"PortableWordSizes"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
-		Cell			"SupportNonInlinedSFcns"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      CodeReplacementLibrary  "ANSI_C"
+	      GenFloatMathFcnCalls    "NOT IN USE"
+	      TargetLangStandard      "C89/C90 (ANSI)"
+	      CodeReplacementLibrary  "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
+	      InferredTypesCompatibility off
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
-	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
@@ -634,18 +638,23 @@ Model {
 	      LogVarNameModifier      "rt_"
 	      MatFileLogging	      on
 	      MultiInstanceERTCode    off
+	      CodeInterfacePackaging  "Nonreusable function"
 	      SupportNonFinite	      on
 	      SupportComplex	      on
 	      PurelyIntegerCode	      off
 	      SupportContinuousTime   on
 	      SupportNonInlinedSFcns  on
 	      SupportVariableSizeSignals off
-	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
+	      CastingMode	      "Nominal"
+	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
-	      CPPClassGenCompliant    off
+	      CPPClassGenCompliant    on
 	      AutosarCompliant	      off
 	      GRTInterface	      on
+	      GenerateAllocFcn	      off
+	      UseToolchainInfoCompliant	on
+	      GenerateSharedConstants on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -659,15 +668,50 @@ Model {
 	      RTWCAPIStates	      off
 	      RTWCAPIRootIO	      off
 	      GenerateASAP2	      off
+	      MultiInstanceErrorCode  "Error"
 	    }
 	    PropName		    "Components"
 	  }
 	}
-	hdlcoderui.hdlcc {
+	SlCovCC.ConfigComp {
 	  $ObjectID		  19
-	  Version		  "1.12.1"
+	  Version		  "1.15.1"
+	  Description		  "Simulink Coverage Configuration Component"
+	  Name			  "Simulink Coverage"
+	  RecordCoverage	  off
+	  CovPath		  "/"
+	  CovSaveName		  "covdata"
+	  CovMetricSettings	  "dw"
+	  CovNameIncrementing	  off
+	  CovHtmlReporting	  on
+	  CovForceBlockReductionOff on
+	  CovEnableCumulative	  on
+	  CovSaveCumulativeToWorkspaceVar on
+	  CovSaveSingleToWorkspaceVar on
+	  CovCumulativeVarName	  "covCumulativeData"
+	  CovCumulativeReport	  off
+	  CovReportOnPause	  on
+	  CovModelRefEnable	  "Off"
+	  CovExternalEMLEnable	  off
+	  CovSFcnEnable		  on
+	  CovBoundaryAbsTol	  1e-05
+	  CovBoundaryRelTol	  0.01
+	  CovUseTimeInterval	  off
+	  CovStartTime		  0
+	  CovStopTime		  0
+	}
+	hdlcoderui.hdlcc {
+	  $ObjectID		  20
+	  Version		  "1.15.1"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    " "
+	    PropName		    "HDLConfigFile"
+	  }
+	  HDLCActiveTab		  "0"
 	}
 	PropName		"Components"
       }
@@ -683,7 +727,7 @@ Model {
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    21
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -763,7 +807,7 @@ Model {
       ExternalReset	      "none"
       InitialConditionSource  "internal"
       InitialCondition	      "0"
-      InitialConditionMode    "State and output"
+      InitialConditionSetting "Output"
       SampleTime	      "1"
       OutMin		      "[]"
       OutMax		      "[]"
@@ -785,6 +829,7 @@ Model {
       Format		      "short"
       Decimation	      "10"
       Floating		      off
+      Lockdown		      off
       SampleTime	      "-1"
     }
     Block {
@@ -847,21 +892,9 @@ Model {
     }
     Block {
       BlockType		      Scope
-      ModelBased	      off
-      TickLabels	      "OneTimeTick"
-      ZoomMode		      "on"
-      Grid		      "on"
-      TimeRange		      "auto"
-      YMin		      "-5"
-      YMax		      "5"
-      SaveToWorkspace	      off
-      SaveName		      "ScopeData"
-      DataFormat	      "Array"
-      LimitDataPoints	      on
-      MaxDataPoints	      "5000"
-      Decimation	      "1"
-      SampleInput	      off
-      SampleTime	      "-1"
+      DefaultConfigurationName "Simulink.scopes.TimeScopeBlockCfg"
+      NumInputPorts	      "1"
+      Floating		      off
     }
     Block {
       BlockType		      SubSystem
@@ -869,10 +902,15 @@ Model {
       Permissions	      "ReadWrite"
       PermitHierarchicalResolution "All"
       TreatAsAtomicUnit	      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
       CheckFcnCallInpInsideContextMsg off
       SystemSampleTime	      "-1"
+      RTWSystemCode	      "Auto"
       RTWFcnNameOpts	      "Auto"
       RTWFileNameOpts	      "Auto"
+      FunctionInterfaceSpec   "void_void"
+      FunctionWithSeparateData off
       RTWMemSecFuncInitTerm   "Inherit from model"
       RTWMemSecFuncExecute    "Inherit from model"
       RTWMemSecDataConstants  "Inherit from model"
@@ -882,9 +920,12 @@ Model {
       DataTypeOverride	      "UseLocalSettings"
       DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
+      Opaque		      off
+      MaskHideContents	      off
       SFBlockType	      "NONE"
-      Variant		      off
       GeneratePreprocessorConditionals off
+      ContentPreviewEnabled   off
+      IsWebBlock	      off
     }
     Block {
       BlockType		      Sum
@@ -931,19 +972,21 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "45"
+    SIDHighWatermark	    "46"
     Block {
       BlockType		      Reference
-      Name		      "AWGN\nChannel"
-      SID		      "19"
+      Name		      "AWGN\nChannel1"
+      SID		      "46"
       Ports		      [1, 1]
-      Position		      [305, 341, 400, 399]
-      ZOrder		      -1
-      LibraryVersion	      "1.466"
+      Position		      [90, 73, 150, 117]
+      ZOrder		      9
+      ShowName		      off
+      LibraryVersion	      "1.472"
       UserDataPersistent      on
       UserData		      "DataTag0"
       SourceBlock	      "commchan3/AWGN\nChannel"
       SourceType	      "AWGN Channel"
+      ContentPreviewEnabled   off
       InputProcessing	      "Inherited (this choice will be removed - see release notes)"
       seed		      "67"
       noiseMode		      "Variance from mask"
@@ -953,36 +996,24 @@ Model {
       bitsPerSym	      "1"
       Ps		      "1"
       Tsym		      "1"
-      variance		      "0.1"
+      variance		      "1"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "28"
-      Position		      [220, 355, 250, 385]
+      Position		      [205, 280, 235, 310]
       ZOrder		      -2
       ShowName		      off
       Value		      "1000"
     }
     Block {
       BlockType		      DiscreteIntegrator
-      Name		      "Discrete-Time\nIntegrator"
-      SID		      "38"
-      Ports		      [1, 1]
-      Position		      [140, 79, 175, 111]
-      ZOrder		      -10
-      ShowName		      off
-      SampleTime	      "T"
-      ICPrevOutput	      "DiscIntNeverNeededParam"
-      ICPrevScaledInput	      "DiscIntNeverNeededParam"
-    }
-    Block {
-      BlockType		      DiscreteIntegrator
       Name		      "Discrete-Time\nIntegrator1"
       SID		      "45"
       Ports		      [1, 1]
-      Position		      [80, 79, 115, 111]
-      ZOrder		      8
+      Position		      [290, 279, 325, 311]
+      ZOrder		      10
       ShowName		      off
       SampleTime	      "T"
       ICPrevOutput	      "DiscIntNeverNeededParam"
@@ -993,11 +1024,10 @@ Model {
       Name		      "Display"
       SID		      "42"
       Ports		      [1]
-      Position		      [455, 355, 545, 385]
+      Position		      [390, 280, 480, 310]
       ZOrder		      6
       ShowName		      off
       Decimation	      "1"
-      Lockdown		      off
     }
     Block {
       BlockType		      Mux
@@ -1017,9 +1047,10 @@ Model {
       Ports		      [0, 1]
       Position		      [20, 80, 50, 110]
       ZOrder		      -13
-      LibraryVersion	      "1.281"
+      LibraryVersion	      "1.358"
       SourceBlock	      "simulink/Sources/Ramp"
       SourceType	      "Ramp"
+      ContentPreviewEnabled   off
       slope		      "1"
       start		      "0"
       X0		      "0"
@@ -1033,28 +1064,25 @@ Model {
       Position		      [565, 32, 600, 78]
       ZOrder		      -14
       ShowName		      off
-      Floating		      off
-      Location		      [1021, 350, 1771, 914]
-      Open		      on
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingDecimation','1','DataLoggin"
+      "gDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'SerializedDisplays',{struct('MinYLimReal"
+      "','-1.6864','MaxYLimReal','11.46508','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','11.46508','LegendVisib"
+      "ility','On','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450980392"
+      "2 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706"
+      " 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529"
+      " 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Li"
+      "nePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',2,'LineNames',{{'AWGN Channel1','Subsystem/1'}"
+      "},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1.6864','MaxYLimReal','11."
+      "46508','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','11.46508','LegendVisibility','On','XGrid',true,'YGri"
+      "d',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.68627450"
+      "9803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078"
+      "431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235"
+      "294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserD"
+      "efinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration"
+      "('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','"
+      "2015b')),'Version','2015b','Location',[1002 454 1752 1018],'VisibleAtModelOpen','on')"
     }
     Block {
       BlockType		      Scope
@@ -1064,29 +1092,25 @@ Model {
       Position		      [565, 142, 600, 188]
       ZOrder		      7
       ShowName		      off
-      Floating		      off
-      Location		      [795, 544, 1387, 953]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      ShowLegends	      off
-      SaveName		      "ScopeData1"
-      DataFormat	      "StructureWithTime"
-      LimitDataPoints	      off
-      SampleTime	      "0"
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1','DataLoggingSaveFormat','StructureWithTime',"
+      "'DataLoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'S"
+      "erializedDisplays',{struct('MinYLimReal','-1.51395','MaxYLimReal','1.87803','YLabelReal','','MinYLimMag','0.0000"
+      "0','MaxYLimMag','1.87803','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0"
+      " 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666666666"
+      "67;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725490196"
+      "08 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980"
+      "392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'Line"
+      "Names',{{'Sum'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','-1.51395','M"
+      "axYLimReal','1.87803','YLabelReal','','MinYLimMag','0.00000','MaxYLimMag','1.87803','LegendVisibility','off','XG"
+      "rid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.68627450980"
+      "3922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.41176470"
+      "5882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921"
+      "569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCac"
+      "he',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmg"
+      "r.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version','2015"
+      "b')),'Version','2015b','Location',[795 544 1387 953],'VisibleAtModelOpen','on')"
     }
     Block {
       BlockType		      SubSystem
@@ -1097,16 +1121,11 @@ Model {
       ZOrder		      -15
       ShowName		      off
       LibraryVersion	      "1.762"
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
+      Variant		      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		21
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"fprintf('AB\\n filter')\nport_label('input', 1, 'z')\nport_label('output', 1, 'x_pr')\nport_label('output'"
 	", 2, 'x_sm')\nport_label('output', 3, 'dx_sm')"
@@ -1114,14 +1133,14 @@ Model {
 	  Type			  "Simulink.MaskParameter"
 	  Dimension		  2
 	  Object {
-	    $ObjectID		    22
+	    $ObjectID		    23
 	    Type		    "edit"
 	    Name		    "a"
 	    Prompt		    "Alpha"
 	    Value		    "a"
 	  }
 	  Object {
-	    $ObjectID		    23
+	    $ObjectID		    24
 	    Type		    "edit"
 	    Name		    "b"
 	    Prompt		    "Beta"
@@ -1132,7 +1151,7 @@ Model {
       }
       System {
 	Name			"Subsystem"
-	Location		[54, 52, 1180, 1006]
+	Location		[219, 69, 1345, 1023]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -1294,107 +1313,129 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "z"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
 	  Points		  [0, 0]
 	  Branch {
+	    ZOrder		    3
 	    DstBlock		    "Gain"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    4
 	    Points		    [0, 150]
 	    DstBlock		    "Gain1"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "Gain"
 	  SrcPort		  1
 	  DstBlock		  "Sum1"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "Sum1"
 	  SrcPort		  1
 	  Points		  [15, 0]
 	  Branch {
+	    ZOrder		    7
 	    DstBlock		    "Unit Delay"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    8
 	    Points		    [0, 55]
 	    DstBlock		    "x_sm"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Unit Delay"
 	  SrcPort		  1
 	  DstBlock		  "Sum2"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
 	  Points		  [10, 0]
 	  Branch {
+	    ZOrder		    11
 	    DstBlock		    "x_pr"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    12
 	    Points		    [0, -70; -210, 0]
 	    Branch {
+	      ZOrder		      13
 	      Points		      [-130, 0]
 	      DstBlock		      "Sum"
 	      DstPort		      1
 	    }
 	    Branch {
+	      ZOrder		      14
 	      DstBlock		      "Sum1"
 	      DstPort		      1
 	    }
 	  }
 	}
 	Line {
+	  ZOrder		  15
 	  SrcBlock		  "Gain1"
 	  SrcPort		  1
 	  DstBlock		  "Sum3"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  16
 	  SrcBlock		  "Sum3"
 	  SrcPort		  1
 	  Points		  [25, 0]
 	  Branch {
+	    ZOrder		    17
 	    DstBlock		    "Unit Delay1"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    18
 	    Points		    [0, -60]
 	    DstBlock		    "dx_sm"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  19
 	  SrcBlock		  "Unit Delay1"
 	  SrcPort		  1
 	  Points		  [5, 0]
 	  Branch {
+	    ZOrder		    20
 	    DstBlock		    "Gain2"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    21
 	    Points		    [0, 45; -130, 0]
 	    DstBlock		    "Sum3"
 	    DstPort		    2
 	  }
 	}
 	Line {
+	  ZOrder		  22
 	  SrcBlock		  "Gain2"
 	  SrcPort		  1
 	  Points		  [20, 0]
@@ -1426,37 +1467,44 @@ Model {
       ShowName		      off
     }
     Line {
+      ZOrder		      1
       SrcBlock		      "Subsystem"
       SrcPort		      3
       DstBlock		      "Terminator1"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "AWGN\nChannel"
+      ZOrder		      17
+      SrcBlock		      "Discrete-Time\nIntegrator1"
       SrcPort		      1
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Discrete-Time\nIntegrator"
+      ZOrder		      19
+      SrcBlock		      "AWGN\nChannel1"
       SrcPort		      1
-      Points		      [13, 0]
+      Points		      [38, 0]
       Branch {
+	ZOrder			20
 	Points			[0, -60]
 	DstBlock		"Mux"
 	DstPort			1
       }
       Branch {
+	ZOrder			5
 	Points			[0, 70]
 	DstBlock		"Sum"
 	DstPort			2
       }
       Branch {
+	ZOrder			6
 	DstBlock		"Subsystem"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      7
       SrcBlock		      "Subsystem"
       SrcPort		      2
       Points		      [80, 0]
@@ -1464,39 +1512,38 @@ Model {
       DstPort		      1
     }
     Line {
+      ZOrder		      8
       SrcBlock		      "Mux"
       SrcPort		      1
       DstBlock		      "Scope"
       DstPort		      1
     }
     Line {
+      ZOrder		      9
       SrcBlock		      "Subsystem"
       SrcPort		      1
       DstBlock		      "Mux"
       DstPort		      2
     }
     Line {
+      ZOrder		      10
       SrcBlock		      "Sum"
       SrcPort		      1
       DstBlock		      "Scope1"
       DstPort		      1
     }
     Line {
+      ZOrder		      15
       SrcBlock		      "Constant1"
       SrcPort		      1
-      DstBlock		      "AWGN\nChannel"
+      DstBlock		      "Discrete-Time\nIntegrator1"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Discrete-Time\nIntegrator1"
-      SrcPort		      1
-      DstBlock		      "Discrete-Time\nIntegrator"
-      DstPort		      1
-    }
-    Line {
+      ZOrder		      18
       SrcBlock		      "Ramp"
       SrcPort		      1
-      DstBlock		      "Discrete-Time\nIntegrator1"
+      DstBlock		      "AWGN\nChannel1"
       DstPort		      1
     }
   }
@@ -1509,12 +1556,11 @@ MatData {
     "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
   }
 }
-# Finite State Machines
+#Finite State Machines
 #
-#    Stateflow Version 7.6 (R2012b) dated Jul 26 2012, 22:31:44
+#   Stateflow 80000006
 #
 #
-
 Stateflow {
   machine {
     id			    1
@@ -1522,7 +1568,7 @@ Stateflow {
     created		    "22-Oct-2013 16:16:29"
     isLibrary		    0
     firstTarget		    2
-    sfVersion		    76014001.001
+    sfVersion		    80000006
   }
   target {
     id			    2
